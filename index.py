@@ -4,7 +4,7 @@ import secret
 
 intents = discord.Intents.default()
 intents.members = True
-intents.reaction = True
+intents.reactions = True
 
 class MyClient(discord.Client):
     """Discord client main class."""
