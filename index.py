@@ -2,6 +2,10 @@
 import discord
 import secret
 
+intents = discord.Intents.default()
+intents.members = True
+intents.reaction = True
+
 class MyClient(discord.Client):
     """Discord client main class."""
     async def on_ready(self):
