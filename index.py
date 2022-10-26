@@ -10,8 +10,8 @@ class MyClient(discord.Client):
     """Discord client main class."""
     async def on_ready(self):
         """When the client is ready, do this."""
-        print('Logged in as {self.user}.')
-        print('ready')
+        print(f"Logged in as {self.user}.")
+        print("ready")
 
 client = MyClient()
 client.run(secret.TOKEN)
