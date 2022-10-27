@@ -1,6 +1,5 @@
 import disnake
 from disnake.ext import commands
-import asyncio
 
 class Latency(commands.Cog):
     """Class that sends latency information."""
@@ -9,7 +8,7 @@ class Latency(commands.Cog):
         """Sets bot object."""
         self.bot = bot
 
-    @commands.slash_command(name="latency", description="Get the bot latency.")
+    @commands.slash_command(name="latency", description="Get bot latency.")
     @commands.has_permissions(administrator=True)           
     async def goodbye(self, inter: disnake.ApplicationCommandInteraction):
 
@@ -17,7 +16,8 @@ class Latency(commands.Cog):
         latency = round(latency * 1000, 2)
 
         embed = disnake.Embed(
-            title=f"Latency {latency}ms",
+            title=f"Latency: {latency}ms",
+            color=disnake.Colour.blurple()
         )
 
         await inter.response.send_message(embed=embed)
