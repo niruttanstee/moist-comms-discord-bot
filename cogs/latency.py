@@ -9,9 +9,12 @@ class Latency(commands.Cog):
         self.bot = bot
 
     @commands.slash_command(name="latency", description="Get bot latency.")
-    @commands.has_permissions(administrator=True)           
-    async def goodbye(self, inter: disnake.ApplicationCommandInteraction):
-
+    @commands.default_member_permissions(manage_guild=True)
+    async def latency(self, inter: disnake.ApplicationCommandInteraction):
+        """
+            Get's the bot latency.
+            Admin command.
+        """
         latency = self.bot.latency
         latency = round(latency * 1000, 2)
 
@@ -19,9 +22,8 @@ class Latency(commands.Cog):
             title=f"Latency: {latency}ms",
             color=disnake.Colour.blurple()
         )
-
-        await inter.response.send_message(embed=embed)
-        
+        await inter.response.send_message(embed=embed, ephemeral=True)
+        print(f"Latency: {latency}ms")
         
 def setup(bot):
     """Register the cog."""

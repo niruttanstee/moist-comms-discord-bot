@@ -7,6 +7,7 @@ import os
 intents = disnake.Intents.default()
 intents.members = True
 intents.messages = True
+intents.presences = True
 
 bot = commands.InteractionBot(
     intents=intents, 
