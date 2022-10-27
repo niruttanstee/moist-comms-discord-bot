@@ -1,21 +1,26 @@
 """Main discord file for bot startup."""
-import discord
+import disnake
+from disnake.ext import commands
 import secret
 import os
 
-intents = discord.Intents.default()
+intents = disnake.Intents.default()
 intents.members = True
-intents.reactions = True
+intents.messages = True
 
-class MyClient(discord.Client):
-    """Discord client main class."""
-    async def on_ready(self):
-        """When the client is ready, do this."""
-        print(f"Logged in as {self.user}.")
-        print("ready")
+bot = commands.InteractionBot(
+    intents=intents, 
+    test_guilds=[860934544693919744], 
+    sync_commands_debug=True)
 
-for filename in os.listdir("cogs"):
-    print(filename)
+@bot.event
+async def on_ready():
+    print("Bot is ready.")
 
-client = MyClient()
-client.run(secret.TOKEN)
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        file = filename[:-3]
+        bot.load_extension(f"cogs.{file}")
+        print(f"Loaded cog: {file}")
+
+bot.run(secret.TOKEN)
