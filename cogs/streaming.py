@@ -17,31 +17,40 @@ class Streaming(commands.Cog):
         """
         guild = before.guild
         member = after
-        member_new_activity = str(member.activities).lower()
+        activity = str(member.activities).lower()
 
         live_role = guild.get_role(862116382955405312)
 
-        if "streaming" in member_new_activity:
+        if "streaming" in activity:
             # check if member already has role
             if live_role in member.roles:
                 return
-            # give member 'now live' role
-            await member.add_roles(
-                live_role, 
-                reason="Streamer is live.", 
-                atomic=True
-            )
-            print(f"Streaming: {member} is streaming, {live_role} role given.")
-        elif ("streaming" not in member_new_activity):
+            await self.give_live_role(member, live_role)
+        elif ("streaming" not in activity):
             # check if member does not have a role.
             if live_role not in member.roles:
                 return
-            await member.remove_roles(
-                live_role, 
+            await self.remove_live_role(member, live_role)
+
+    async def give_live_role(self, member, role):
+        """Give now live role to member."""
+        # give member 'now live' role
+        await member.add_roles(
+                role, 
                 reason="Streamer is live.", 
                 atomic=True
-            )
-            print(f"Streaming: {member} is no longer streaming, {live_role} role removed.")
+        )
+        print(f"Streaming: {member} is streaming, {role} role given.")
+    
+    async def remove_live_role(self, member, role):
+        """Remove now live role to member."""
+        # remove member 'now live' role
+        await member.remove_roles(
+                role, 
+                reason="Streamer is live.", 
+                atomic=True
+        )
+        print(f"Streaming: {member} is no longer streaming, {role} role removed.")
 
 def setup(bot):
     """Register the cog."""
