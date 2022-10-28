@@ -17,6 +17,8 @@ bot = commands.InteractionBot(
 @bot.event
 async def on_ready():
     print("Bot is ready.")
+    game = disnake.Game("Breaking TJ's PC")
+    await bot.change_presence(status=disnake.Status.online, activity=game)
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
