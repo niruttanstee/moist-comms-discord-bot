@@ -20,10 +20,16 @@ async def on_ready():
     game = disnake.Game("Breaking TJ's PC")
     await bot.change_presence(status=disnake.Status.online, activity=game)
 
-for filename in os.listdir('./cogs'):
-    if filename.endswith('.py'):
-        file = filename[:-3]
-        bot.load_extension(f"cogs.{file}")
-        print(f"Loaded cog: {file}")
+def load_cogs():
+    number_of_cogs = 0
+    for filename in os.listdir('./cogs'):
+        if filename.endswith('.py'):
+            file = filename[:-3]
+            bot.load_extension(f"cogs.{file}")
+            print(f"Loading {file}...")
+            number_of_cogs+=1
+    print(f"({number_of_cogs}) cog(s) loaded.")
+
+load_cogs()
 
 bot.run(secret.TOKEN)
