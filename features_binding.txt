@@ -1,0 +1,2 @@
+feature_0 = RNG setup not required
+featur_1 = Streaming tools - Setup required

@@ -1,5 +1,9 @@
 import disnake
 from disnake.ext import commands
+import json
+
+with open("./embed_content.json", "r") as embed_content:
+    ec = json.load(embed_content)['latency']
 
 class Latency(commands.Cog):
     """Class that sends latency information."""
@@ -19,11 +23,11 @@ class Latency(commands.Cog):
         latency = round(latency * 1000, 2)
 
         embed = disnake.Embed(
-            title=f"Latency: {latency}ms",
+            title=f"{ec['title'].format(latency=latency)}",
             color=disnake.Colour.blurple()
         )
         await inter.response.send_message(embed=embed, ephemeral=True)
-        print(f"Latency: {latency}ms")
+        print(f"{ec['title'].format(latency=latency)}")
         
 def setup(bot):
     """Register the cog."""

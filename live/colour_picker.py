@@ -98,6 +98,7 @@ class ColourPicker(commands.Cog):
             'beige': 1035226867449462805,
             'orange': 1035226684028362802,
             'red': 1035227104838684772,
+            'maroon': 1035605392274763798,
             'green': 1035227213777350666,
             'blue': 1035227350096412773,
             'purple': 1035227746911146035,
@@ -157,6 +158,9 @@ class Dropdown(disnake.ui.Select):
             ),
             disnake.SelectOption(
                 label="Red", description="Change my profile colour to red.", emoji="🟥"
+            ),
+            disnake.SelectOption(
+                label="Maroon", description="Change my profile colour to Maroon.", emoji="🥀"
             ),
             disnake.SelectOption(
                 label="Green", description="Change my profile colour to green.", emoji="🟩"

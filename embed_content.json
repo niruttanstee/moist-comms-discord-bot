@@ -1,0 +1,55 @@
+{
+    "latency": {
+        "title": "Latency: {latency}ms"
+    },
+    "setup": {
+        "embed_0": {
+            "title": "(0) Setup - Let's get started",
+            "description": "👋 **Hi, I'm Remus**\n\nI'm here to empower your server. I've been programmed to have many **features** and I'll walk you through the process of customizing the ones you want.\n\nThe setup stage takes around **({eta_time}mins)**, so please make sure you have some time on the side.",
+            "field_1": {
+                "name": "If you've called  ``/setup``  before...",
+                "value": "Once you continue after this stage, your saved customization will be lost."
+            },
+            "field_2": {
+                "name": "Options",
+                "value": "```React ✅ below to continue the setup process.```"
+            },
+            "thumbnail": "https://imgur.com/9fgTZAj.png"
+        }, 
+        "embed_1": {
+            "title": "(1) Setup - Choose the features",
+            "description": "Okay, now this is where you choose your features!\n\nDon't worry if you can't decide all at once. You can always come back and use  ``/setup``  again in the future.",
+            "field_1": {
+                "name": "0️⃣ RNG",
+                "value": "``Rolls`` ``Odds-on`` ``Random lister`` ``Role giveaway`` ``List giveaway`` ``Random teams``"
+            },
+            "field_end": {
+                "name": "Options",
+                "value": "```To unlock a feature, react to the emotes below corresponding to the labels above.``````React ✅ below to confirm that you're done.```\n**Quick note:** Some features will need you to run its own special setup command to personalize it. Don't worry, I'll walk you through them in a moment. If you'd like more details about certain features, please visit our discord."
+            },
+            "thumbnail": "https://imgur.com/9fgTZAj.png"
+        },
+        "embed_2": {
+            "title": "(2) Setup - Confirm your selected features",
+            "description": "Here's the **features** that you've selected.",
+            "field_1": {
+                "name": "You selected ({selected_total}):",
+                "not_selected": "Please go back and select at least one feature before continuing!"
+            },
+            "field_end": {
+                "name": "Options",
+                "value_not_selected": "```React ❎ below to go back and reselect features.```",
+                "value_selected": "```React ❎ below to go back and reselect features.``````React ✅ below to confirm.```"
+            },
+            "thumbnail": "https://imgur.com/9fgTZAj.png"
+        },
+        "embed_3": {
+            "title": "(3) Setup - All done",
+            "description": "That's it, you've unlocked these features for your server!\n\n**Important:** As I've mentioned earlier, some features will require you to run its own setup command to personalize it further. Below is the list of your chosen feature(s) and any details about its setup requirements.\n\nAll you have to do is type the unique setup command shown.",
+            "field_1": {
+                "name": "Your selected feature(s):"
+            },
+            "thumbnail": "https://imgur.com/9fgTZAj.png"
+        }
+    }
+}
